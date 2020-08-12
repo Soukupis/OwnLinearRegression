@@ -1,6 +1,6 @@
 import pandas as pd
 from sklearn.datasets import load_boston
-from LinearRegression import *
+from linear_regression import *
 import numpy as np
 import matplotlib.pyplot as plt
 import numpy.linalg
@@ -25,13 +25,11 @@ y_train = y[indices[:-test_size]]
 x_test = x[indices[-test_size:]]
 y_test = y[indices[-test_size:]]
 
-from sklearn.linear_model import LinearRegression
-
-regr = LinearRegression()
+regr = linear_regression()
 regr.fit(x_train, y_train)
 
-print("Coeffs: ", regr.coef_)
-print("Intercept: ", regr.intercept_)
+print("Coeffs: ", regr.beta[1:])
+print("Intercept: ",regr.beta[0])
 print("R2: ",regr.score(x_test, y_test))
 
 train_pred =regr.predict(x_train)

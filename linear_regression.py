@@ -1,4 +1,6 @@
-class LinearRegression:
+import numpy as np
+
+class linear_regression:
     # LinRegr constructor
     def __init__(self, use_intercept=True):
         self.beta = None
@@ -14,7 +16,7 @@ class LinearRegression:
             x = self.add_intercept(x)
         # Compute the closed Form
         inner = np.dot(x.T, x)
-        inv = numpy.linalg.inv(inner)
+        inv = np.linalg.inv(inner)
         self.beta = np.dot(np.dot(inv, x.T), y)
         
     def predict(self, x):
